@@ -1,0 +1,40 @@
+﻿@model IEnumerable<interactive_comments_section.Entities.View_All>
+@{
+    Layout = "_Comments";
+}
+
+@foreach (var i in Model) {
+
+    <div class="box">
+
+        <div class="userData">
+
+            <img class="pfp" src="/images/image-amyrobson.png" alt="" />
+            <span class="username">@i.username</span>
+
+        </div>
+
+        <span class="text">@i.text</span>
+
+        <div class="commentFooter">
+
+            <div>
+
+                <button class="btnPlus">+</button>
+                <span class="votes">@i.votes</span>
+                <button class="btnMinus">-</button>
+
+            </div>
+
+            <div>
+
+                <button class="btnReply">Reply</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+}

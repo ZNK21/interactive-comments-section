@@ -1,0 +1,64 @@
+﻿body {
+    background: #eaecf1;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    width: 100%;
+    padding: 30px 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.box {
+    position: relative;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.userData {
+    margin-bottom: 5%;
+}
+
+.pfp {
+    width: 10%;
+    margin: 0px 10px 0 0;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.text {
+    opacity: 0.75;
+}
+
+.commentFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.btnPlus {
+    border: none;
+    background: #eaecf1;
+    color: #c3c4ef;
+    font-weight: 700;
+    border-radius: 7px 0 0 7px;
+}
+
+.btnMinus {
+    width: 25px;
+    height: 30px;
+    border: none;
+    background: #eaecf1;
+    color: #c3c4ef;
+    font-weight: 700;
+    border-radius: 0 7px 7px 0;
+}
