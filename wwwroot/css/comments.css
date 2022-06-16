@@ -1,6 +1,7 @@
 ﻿body {
-    background: #eaecf1;
+    background: #f5f6fa;
     font-family: 'Rubik', sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -10,14 +11,24 @@
     margin-left: auto;
 }
 
+.pb-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 .box {
+    width: 100%;
+    height: fit-content;
     position: relative;
     box-sizing: border-box;
     background: white;
     border-radius: 8px;
-    margin-bottom: 15px;
     padding: 15px;
+}
+
+.comment.isReply .box {
+    margin-left: 15px;
 }
 
 .userData {
@@ -25,13 +36,14 @@
 }
 
 .pfp {
-    width: 10%;
+    width: 31.53px;
+    height: 31.53px;
     margin: 0px 10px 0 0;
 }
 
 .username {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .text {
@@ -45,20 +57,142 @@
     margin-top: 5%;
 }
 
-.btnPlus {
-    border: none;
-    background: #eaecf1;
-    color: #c3c4ef;
-    font-weight: 700;
-    border-radius: 7px 0 0 7px;
+.btnGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.btnMinus {
-    width: 25px;
-    height: 30px;
+[class^=btnPlus] {
+    display: flex;
+    width: 35px;
+    height: 35px;
     border: none;
-    background: #eaecf1;
-    color: #c3c4ef;
+    background: #f5f6fa;
+    font-weight: 700;
+    border-radius: 7px 0 0 7px;
+    align-items: center;
+    justify-content: center;
+}
+
+.votes {
+    display: flex;
+    width: 25px;
+    height: 35px;
+    background: #f5f6fa;
+    align-items: center;
+    flex-direction: row;
+    font-weight: 500;
+    color: #5457b6;
+    justify-content: center;
+}
+
+[class^=btnMinus] {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: #f5f6fa;
     font-weight: 700;
     border-radius: 0 7px 7px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+[class^=btnReply] {
+    width: 65px;
+    height: 35px;
+    padding: 0;
+    display: flex;
+    background: none;
+    border: none;
+    color: #5457b6;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.isReply {
+    display: flex;
+    border-left: 2px solid #eaecf1;
+    padding-left: 15px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputBox {
+    width: 100%;
+    height: 200px;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.inputText {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid #eaecf1;
+    padding: 15px 20px;
+    margin-bottom: 35px;
+}
+
+.inputFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnSend {
+    width: 80px;
+    height: 40px;
+    background: #5457b6;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+}
+
+.replyBox {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.notReply {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputReply {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid #eaecf1;
+    padding: 15px 20px;
+    margin-bottom: 35px;
+}
+
+[class^=btnSendReply_] {
+    width: 80px;
+    height: 40px;
+    background: #5457b6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.replyFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

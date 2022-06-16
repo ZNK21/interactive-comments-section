@@ -5,5 +5,6 @@ namespace interactive_comments_section.Context {
     public class CommentsContext : DbContext {
         public CommentsContext(DbContextOptions options) : base(options) { }
         public DbSet <View_All> View_All { get; set; }
+        public DbSet <Comments> Comments { get; set; }
     }
 }

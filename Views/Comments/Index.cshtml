@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<interactive_comments_section.Entities.View_All>
 @{
-    Layout = "_Comments";
+    Layout = "../Shared/_app";
 }
 
-@foreach (var i in Model) {
+@foreach (var i in Model.Where(p => p.isReply == false)) {
 
     <div class="box">
 
         <div class="userData">
 
-            <img class="pfp" src="/images/image-amyrobson.png" alt="" />
+            <img class="pfp" src="/images/avatars/image-amyrobson.png" alt="" />
             <span class="username">@i.username</span>
 
         </div>
@@ -18,17 +18,17 @@
 
         <div class="commentFooter">
 
-            <div>
+            <div class="btnGroup">
 
-                <button class="btnPlus">+</button>
-                <span class="votes">@i.votes</span>
-                <button class="btnMinus">-</button>
+                <button class="btnPlus_@i.commentId"><img src="/images/icons/icon-plus.svg" alt="+" /></button>
+                <div class="votes">@i.votes</div>
+                <button class="btnMinus_@i.commentId"><img src="/images/icons/icon-minus.svg" alt="-" /></button>
 
             </div>
 
             <div>
 
-                <button class="btnReply">Reply</button>
+                <button class="btnReply"><img src="/images/icons/icon-reply.svg" alt="<" />Reply</button>
 
             </div>
 
@@ -36,5 +36,65 @@
 
     </div>
 
+    <div class="replyBox" style="display: none;">
+        <input class="inputReply" value="@("@" + i.username) " />
+        <div class="replyFooter">
+            <img class="pfp" src="/images/avatars/image-amyrobson.png" alt="" />
+            <button class="btnSendReply_@i.commentId">REPLY</button>
+        </div>
+    </div>
 
+    @foreach (var m in Model.Where(n => n.isReply == true && n.replyId == i.commentId)) {
+        <div class="isReply">
+
+            <div class="box">
+
+                <div class="userData">
+
+                    <img class="pfp" src="/images/avatars/image-amyrobson.png" alt="" />
+                    <span class="username">@m.username</span>
+
+                </div>
+
+                <span class="text">@m.text</span>
+
+                <div class="commentFooter">
+
+                    <div class="btnGroup">
+
+                        <button class="btnPlus_@m.commentId"><img src="/images/icons/icon-plus.svg" alt="+" /></button>
+                        <div class="votes">@m.votes</div>
+                        <button class="btnMinus_@m.commentId"><img src="/images/icons/icon-minus.svg" alt="-" /></button>
+
+                    </div>
+
+                    <div>
+
+                        <button class="btnReply"><img src="/images/icons/icon-reply.svg" alt="<" />Reply</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="replyBox" style="display: none;">
+            <input class="inputReply" value="@("@" + m.username) " />
+            <div class="replyFooter">
+                <img class="pfp" src="/images/avatars/image-amyrobson.png" alt="" />
+                <button class="btnSendReply_@i.commentId">REPLY</button>
+            </div>
+        </div>
+
+    }
 }
+
+<div class="inputBox">
+    <input class="inputText" type="text" placeholder="Add a comment..." />
+    <div class="inputFooter">
+        <img class="pfp" src="/images/avatars/image-amyrobson.png" alt="" />
+        <button class="btnSend">SEND</button>
+    </div>
+</div>
